@@ -1,0 +1,84 @@
+/**
+///////////////////////////Design for media page\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+*/
+
+.plain{
+    text-decoration: none;
+    outline: none;
+    color: #990000;
+
+}
+
+a.plain:visited{
+    text-decoration: none;
+    outline: none;
+    color: #990000;
+}
+
+.thumb{
+    width: 90%;
+    height: auto;
+    border-radius: 20px;
+}
+
+
+.media{
+    max-width: 90%;
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 2%;
+    margin-bottom: 3%;
+    font-size: 70%;
+    padding: 2%;
+    border-radius: 10px;
+    background-color: #e6e6e6;
+    opacity: 0.75;
+    transition: .25s ease-in-out;
+}
+
+.media:hover{
+    background-color: rgba(163,0,0,.2);
+    border-right: solid 14px #cc0000;
+    opacity: 1;
+    
+}
+
+
+.media_header{
+    max-width: 100%;
+    width: 100%;
+}
+
+.title{
+    float: left;
+    padding-left: 1%;
+}
+
+.date{
+    float: right;
+    padding-right: 1%;
+}
+
+.media_body{
+    display: table;
+    min-width: 100%;
+    width: 100%;
+    color: #000;
+    border-top: dotted 1px #990000;
+}
+
+
+.blurb{
+    display: table-cell;
+    vertical-align: middle;
+    min-width: 80%;
+    width: 80%;
+}
+
+
+.thumbnail{
+    display: table-cell;
+    vertical-align: middle;
+    padding: 2% 2% 0% 0%;
+}

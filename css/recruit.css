@@ -1,0 +1,69 @@
+/**
+////////////////////Design for recruitment page\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+*/
+
+
+#righter{
+    float: right;
+    width: 25%;
+}
+
+#lefter{
+    float: left;
+    width: 75%;
+}
+
+#other_content{
+    float: left;
+    width: 75%;
+}
+
+#categories{
+    float: left;
+    width: 75%;
+}
+
+#clear_both{
+    clear: both;
+}
+
+#menu{
+    font-size: 110%;
+    font-weight: 200;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+#menu ul{
+    list-style: none;
+}
+
+#menu li{
+    padding: 7% 0%;
+    margin-left: 10%;
+}
+#menu li a{
+    text-decoration: none;
+    color: #888;
+    padding: 7% 0% 7% 15%;
+    border-left: solid 4px transparent;
+    transition: all .3s ease-in-out;
+}
+
+#menu.affix {
+    position: fixed;
+    top: 0;
+}
+
+#menu .nav li a:hover{
+    color: #ff3333;
+    border-left: solid 4px #ff3333;
+    padding: 7% 0% 7% 10%;
+    animation: fade_med 1s infinite ease-in-out;
+    -moz-animation: fade_med 1s infinite ease-in-out; 
+    -webkit-animation: fade_med 1s infinite ease-in-out;
+}
+
+#menu .nav li.active a{
+    color: #b20000;
+    border-left: solid 4px #b20000;
+    padding: 7% 0% 7% 10%;
+}

@@ -1,0 +1,52 @@
+#step1{
+    display: table;
+    width: 98%;
+    margin: 3% 0%;
+    vertical-align: middle;
+    padding: 10px;
+    background-image: url(../images/step1.png);
+    background-position: center; 
+    background-size: 100% 100%;
+}
+
+#step2{
+    display: table;
+    width: 98%;
+    margin: 3% 0%;
+    vertical-align: middle;
+    padding: 10px;
+    background-image: url(../images/step2.png);
+    background-position: center; 
+    background-size: 100% 100%;
+}
+
+#step3{
+    display: table;
+    width: 98%;
+    margin: 3% 0%;
+    vertical-align: middle;
+    padding: 10px;
+    background-image: url(../images/step3.png);
+    background-position: center; 
+    background-size: 100% 100%;
+}
+
+.display_cell_l{
+    display: table-cell;
+    vertical-align: middle;
+    height: 200px;
+    width: 70%;
+    padding: 0px 10px 0px 17px;
+}
+
+.display_cell_r{
+    display: table-cell;
+    vertical-align: middle;
+    height: 200px;
+    width: 30%;
+}
+
+.step{
+    width: 100%;
+    height: auto;
+}

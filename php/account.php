@@ -1,0 +1,14 @@
+<?php
+session_start();
+if(isset($_SESSION['lvl'])){
+	if($_SESSION['lvl']=='None'){
+	    header('Location:accountuser.php'); 
+	}
+	else{
+	    header('Location:accountadmin.php');
+	}
+}
+else{
+	header('Location:denied.php');
+}	
+?>

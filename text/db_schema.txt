@@ -1,0 +1,57 @@
+BikeshareUsers(varchar: email, varchar: password, varchar: fname, varchar: lname, varchar: address, varchar: city, varchar: state, varchar: zip, varchar: phone, double: fines_due, datetime: last_login, varchar: affiliation, varchar: status, varchar: permission_level )
+Contains information about the people who use the bikeshare program.
+Phone number can be null if the user does not have a phone.
+No other fields can be null.
+The default value of fines_due is 0.
+
+Administrators(varchar: username, varchar: password, varchar: email, varchar: fname, varchar: lname, int: permissionslvl, datetime: last_login)
+Contains information on Big Red Bikes team members with administrative privileges.
+No fields can be null.
+
+Bikes(int: bikeid, date: date_added, datetime: last_rented, varchar: current_station, boolean: flagged, text: flag_descript)
+Contains information about the bicycles.
+current_station is a foreign key that references Stations. On delete it restricts. On update it cascades.
+current_station can be null if the bike is not currently docked at a station.
+flag_descript can be null if there is no current reason to flag the bike as unavailable.
+last_rented can be null if the bike has not yet been rented.
+No other fields can be null.
+The default value of last_rented is null.
+The default value of flagged is false.
+The default value of flag_descript is null.
+
+Stations(varchar: name, varchar: address, int: num_helmets, int: num_bikelocks, boolean: flagged, text: flag_descript, varchar: hours_link)
+Contains information about the stations where bikes can be docked.
+flag_descript can be null if there is no current reason to flag the station as unavailable.
+No other fields may be null.
+The default value for num_helmets and num_bikelocks is 0.
+The default value for flagged is false.
+The default value for flagged_descript is null.
+
+CurrentRentals(varchar: username, int: bikeid, varchar: admin, varchar: rented_fom, datetime: time_rented, varchar: due_back)
+Keeps track of the bikes currently rented out to bikeshare users.
+A particular user can only rent one bike at time.
+A particular bike can only be rented by one user at a time.
+username is a foreign key that refers to BikeshareUsers. On delete it restricts and on update it cascades.
+bikeid is a foreign key that refers to Bikes. On delete it restricts and on update it cascades.
+admin is a foreign key that refers to Administrators. On delete it restricts and on update it cascades.
+rented_from is a foreign key that refers to Stations. On delete it restricts and on update it cascades.
+No fields can be null.
+The default value for due_back is “Due back 30 minutes before closing.” It is a message that gives a user information on their particular rental timeframe.
+
+PastRentals(int: rentalid, varchar: username, int: bikeid, varchar: rented_from, datetime: time_rented, varchar: returned_to, datetime: time_returned, boolean: was_late)
+username is a foreign key that references BikeshareUsers. On delete and on update it cascades.
+No fields can be null.
+Note that bikeid, rented_from, and returned_to do not reference a foreign keys.  This is because we want to be able to maintain which bikes a user rented and what station they rented them from/returned them to in the past even if those bike or stations are no longer in use (i.e. deleted from the database). In this case the foreign key constraint would be too constrictive, and so this information is retained in regular fields.
+
+UserNotes(int: noteid, varchar: username, varchar: admin, text: note_text, datetime: timestamp)
+username is a foreign key that references BikeshareUsers. On delete and on update it cascades.
+No field may be null.
+Note that the admin field will denote the administrator who originally left the note but is not a foreign key in this case because we want to keep the current UserNotes even if that administrator has been removed, and so a foreign key constraint would be too constrictive.  The same principle holds for BikeNotes and StationNotes below.
+
+BikeNotes(int: noteid, int: bikeid, varchar: admin, text: note_text, datetime: timestamp)
+bikeid is a foreign key that references Bikes. On delete and on update it cascades.
+No field may be null.
+
+StationNotes(int: noteid, varchar: station, varchar: admin, text: note_text, datetime: timestamp)
+station is a foreign key that references Stations. On delete and on update it cascades.
+No field may be null.
